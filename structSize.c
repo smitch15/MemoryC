@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// understand struct padding
 int main() {
 	typedef struct cStructType{
 		char z;
