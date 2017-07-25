@@ -7,9 +7,10 @@
 
 // standard fibbonacci sequence generator
 int fib(int n){
-	if (n <= 1){
-		return 1;
+	if (n <= 0){
+		return 0;
 	} 
+	if (n == 1) return 1;
 	return fib(n-2) + fib(n-1);
 }
 
@@ -42,8 +43,6 @@ int main(){
 	// create array on the heap & init all zeros
 	int* memoizationArr = (int*) (malloc(sizeof(int)*BIG_N));
 	initMemo(memoizationArr);
-	
-	 
 
 	// print and check correct answer for fib function
 	printf("\n Fibonnaci seqeunce\n");		
@@ -59,7 +58,7 @@ int main(){
 	 
 	// OVERFLOW
 	//printf("fibMem(30, memoizationArr): %d\n", fibMem(30, memoizationArr));  
-	printf("Time in seconds of fib calculations: ");
+	printf("\nTime in seconds of fib calculations:\n");
 	// time memoization fib sequence calculation
 	//initMemo(memoizationArr);
 	startMem = clock();
@@ -77,6 +76,7 @@ int main(){
 	// print values and time took for each
 	printf("Big N value: %d, Big N time: %f\n", bigNseq, bigNtime);
 	printf("Big N value mem: %d, Big N time mem: %f\n", bigNseqMem, bigNtimeMem);
+	free(memoizationArr);
 	return 0;
 }
 
