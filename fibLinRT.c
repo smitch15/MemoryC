@@ -3,7 +3,7 @@
 #include <time.h>
 
 #define ARR_LENGTH 10
-#define BIG_N 20
+#define BIG_N 75
 
 // standard fibbonacci sequence generator
 int fib(int n){
@@ -42,6 +42,9 @@ int main(){
 	clock_t start, end, startMem, endMem;
 	// create array on the heap & init all zeros
 	int* memoizationArr = (int*) (malloc(sizeof(int)*BIG_N));
+	if (memoizationArr == 0){
+		printf("No more memory in heap to allocate\n");
+	}
 	initMemo(memoizationArr);
 
 	// print and check correct answer for fib function
